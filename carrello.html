@@ -7,7 +7,7 @@
     window.onload = () => {
       const params = new URLSearchParams(location.search);
       const prodotto = params.get("prodotto") || "Prodotto sconosciuto";
-      const prezzo = params.get("prezzo") ;
+      const prezzo = params.get("prezzo") || 0;
 
       document.getElementById("contenuto").innerHTML = `
         <p><strong>Prodotto:</strong> ${prodotto}</p>
