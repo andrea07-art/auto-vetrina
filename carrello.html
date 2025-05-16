@@ -6,18 +6,14 @@
   <script>
     window.onload = () => {
       const params = new URLSearchParams(location.search);
-      const prodotto = params.get("prodotto");
-      const prezzo = params.get("prezzo");
+      const prodotto = params.get("prodotto") || "Prodotto sconosciuto";
+      const prezzo = params.get("prezzo") || "0";
 
-      if (prodotto && prezzo) {
-        document.getElementById("contenuto").innerHTML = `
-          <p><strong>Prodotto:</strong> ${prodotto}</p>
-          <p><strong>Prezzo:</strong> €${prezzo}</p>
-          <a href="pagamento.html">Procedi al pagamento</a>
-        `;
-      } else {
-        document.getElementById("contenuto").textContent = "Nessun prodotto nel carrello.";
-      }
+      document.getElementById("contenuto").innerHTML = `
+        <p><strong>Prodotto:</strong> ${prodotto}</p>
+        <p><strong>Prezzo:</strong> €${prezzo}</p>
+        <a href="checkout.html">Procedi al pagamento</a>
+      `;
     };
   </script>
 </head>
