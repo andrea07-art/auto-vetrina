@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrello</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Carrello</title>
+  <script>
+    window.onload = () => {
+      const params = new URLSearchParams(location.search);
+      const prodotto = params.get("prodotto");
+      const prezzo = params.get("prezzo");
+
+      if (prodotto && prezzo) {
+        document.getElementById("contenuto").innerHTML = `
+          <p><strong>Prodotto:</strong> ${prodotto}</p>
+          <p><strong>Prezzo:</strong> €${prezzo}</p>
+          <a href="pagamento.html">Procedi al pagamento</a>
+        `;
+      } else {
+        document.getElementById("contenuto").textContent = "Nessun prodotto nel carrello.";
+      }
+    };
+  </script>
 </head>
 <body>
 
-    <header>
-        <h1>Il tuo Carrello</h1>
-    </header>
-
-    <main>
-        <section class="cart-items">
-            <p>Hai aggiunto un prodotto al carrello.</p>
-            <ul>
-                <li>Fiat Spider Sport - €19.990</li>
-                <!-- oppure -->
-                <li>BMW X5 4x4 - €42.500</li>
-            </ul>
-
-            <div class="cart-total">
-                <strong>Totale: €19.990</strong>
-                <!-- oppure Totale: €42.500 -->
-            </div>
-
-            <a href="checkout.html" class="checkout-btn">Procedi al pagamento</a>
-        </section>
-    </main>
+  <h1>Carrello</h1>
+  <div id="contenuto">Caricamento...</div>
 
 </body>
 </html>
